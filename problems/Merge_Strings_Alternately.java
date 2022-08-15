@@ -2,7 +2,7 @@ package com.Data_Structures_byprayush.problems;
 import java.util.Scanner;
 
 public class Merge_Strings_Alternately {
-//Optimized version:
+//Optimized version:=]
     public String MergeString(String s1,String s2){
           int first = 0;
           int second = 0;
