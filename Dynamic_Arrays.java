@@ -21,7 +21,8 @@ package com.Data_Structures_byprayush;
  * The capacity of a dynamic array means the total number of indexes exisiting in that array meaning all the values including the null/garbage values.
  * E.g. if an array is initiated like this int [] array = new int[10];
  *         and then given values like this array = {1,2,3,4,5};
- *         this means that starting from 0, only 5 index have been filled remaining 5 have null/garbage value.
+ *         this means that starting from 0, only 5 index have been
+ *         filled remaining 5 have null/garbage value.
  *    => The Size of this array is 5 and the capacity of this array is 10.
  *    Also, we can use size to fill the next element into the array as size is always greater than currently filled indexes, since the index starts from 0.
  */
@@ -128,7 +129,7 @@ public class Dynamic_Arrays {
         }
         //To remove extra ',' we can use an if function.
         //If the string is not empty then we cut the string using substring method where we go from 0 start index to s.length - 2, now - 2 because we have two strings after array[i], which is ','&'[space] so we use -2.
-        if(s != ""){
+        if(!s.equals("")){
             s ="["+ s.substring(0 , s.length()-2) + "]";
         }
         else{

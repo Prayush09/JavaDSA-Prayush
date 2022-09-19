@@ -23,7 +23,7 @@ Enumerating by the values (arr[i], arr[j], arr[k]):
 (2, 3, 3) occurs 2 times.
 
 Idea: Here, we have arr[i] + arr[j] + arr[k] = target
-            now, -> arr[k] = target - arr[i] - arr[j]
+            now, -> target - arr[i] - arr[j] = arr[k]
             when we fix arr[i] and arr[j] values and get arr[k] and
             if it exists inside the list then we have a tuple i.e.
             i,j,k...
@@ -49,7 +49,6 @@ public class Three_Sum_Multiplicity {
                default V getOrDefault(Object key, V defaultValue)
 
        Parameters: This method accepts two parameters:
-
      * key: which is the key of the element whose value has to be obtained.
      * defaultValue: which is the default value that has to be returned, if no value is mapped with the specified key.
      * Return Value: This method returns value mapped with the specified key, otherwise default value is returned.
@@ -72,10 +71,10 @@ public class Three_Sum_Multiplicity {
                     long freq2 = frequency.get(element2);
                     long freq3 = frequency.get(element3);
 
-                    if(element1 == element2 && element1 == element3){
+                    if(element1.equals(element2) && element1.equals(element3)){
                         ans += (freq1) * (freq1-1)*(freq1-2)/6;//Case 3 Where all elements in tuple are same.
                     }else
-                        if(element1 == element2 && element1 != element3){
+                        if(element1.equals(element2)){
                             ans += (freq1)*(freq1-1)/2 * freq3;// Case 2 where 2 are same and the other is different.
                     }else
                         if(element1 < element2 && element2 < element3){
@@ -84,7 +83,7 @@ public class Three_Sum_Multiplicity {
                 }
             }
         }
-        return (int)(ans+=ans % 1000000007);
+        return (int) (ans + ans % 1000000007);
     }
 
     public static void main(String[] args) {
