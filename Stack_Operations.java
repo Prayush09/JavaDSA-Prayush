@@ -12,10 +12,13 @@ class Stack
     {
         return (top < 0);
     }
+
     Stack()
     {
+
         top = -1;
     }
+
     boolean push (Scanner sc)
     {
         if(top == maxsize-1)

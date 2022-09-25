@@ -3,12 +3,26 @@ package com.Data_Structures_byprayush;// Linked list operations in Java
 //21BCE7864
 
 public class LinkedList {
-    Node head;
+    static Node head;
+
 
     // Create a node
     class Node {
         int data;
         Node next;
+        /*
+        How does next work?
+        well imagine all the nodes are basically a hashmap
+        so it will have
+        {
+        "data" = 10(say);
+        "next" = {
+                    "data" = 9;
+                    "next" = null;
+                 }
+        }
+        the above representation can be visulized like node(10)->node(9)
+         */
 
         Node(int d) {
             data = d;
@@ -116,6 +130,21 @@ public class LinkedList {
         }
     }
 
+    Node reverseLinkedList(Node node) {
+        Node next;
+        Node current = node;
+        Node prev = null;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        node = prev;
+        return node;
+    }
+
+
     // Print the linked list
     public void printList() {
         Node tnode = head;
@@ -126,32 +155,46 @@ public class LinkedList {
 
     }
 
-    public static void main(String[] args) {
-        LinkedList llist = new LinkedList();
-
-        llist.insertAtEnd(1);
-        llist.insertAtBeginning(2);
-        llist.insertAtBeginning(3);
-        llist.insertAtEnd(4);
-        llist.insertAfter(llist.head.next, 5);
-
-        System.out.println("Linked list: ");
-        llist.printList();
-
-        System.out.println("\nAfter deleting an element: ");
-        llist.deleteNode(3);
-        llist.printList();
-
-        System.out.println();
-        int item_to_find = 3;
-        System.out.println("Searching for Item: "+item_to_find);
-        if (llist.search(llist.head, item_to_find))
-            System.out.println(item_to_find + " is found");
-        else
-            System.out.println(item_to_find + " is not found");
-
-        llist.sortLinkedList(llist.head);
-        System.out.println("\nSorted List: ");
-        llist.printList();
+    void printList(Node node) {
+        while (node != null) {
+            System.out.print(node.data + " ");
+            node = node.next;
+        }
     }
+
+        public static void main(String [] args)
+        {
+            LinkedList llist = new LinkedList();
+
+            llist.insertAtEnd(1);
+            llist.insertAtBeginning(2);
+            llist.insertAtBeginning(3);
+            llist.insertAtEnd(4);
+            llist.insertAfter(llist.head.next, 5);
+
+            System.out.println("Linked list: ");
+            llist.printList(head);
+
+//            System.out.println("\nAfter deleting an element: ");
+//            llist.deleteNode(3);
+//            llist.printList();
+
+            head = llist.reverseLinkedList(head);
+            System.out.println("\nReversing the linked list");
+            llist.printList(head);
+
+            System.out.println();
+            int item_to_find = 3;
+            System.out.println("Searching for Item: " + item_to_find);
+            if (llist.search(llist.head, item_to_find))
+                System.out.println(item_to_find + " is found");
+            else
+                System.out.println(item_to_find + " is not found");
+
+            llist.sortLinkedList(llist.head);
+            System.out.println("\nSorted List: ");
+            llist.printList();
+
+        }
+
 }
