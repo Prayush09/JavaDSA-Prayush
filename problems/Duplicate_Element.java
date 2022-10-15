@@ -19,6 +19,7 @@ class ContainsDuplicate{
     public boolean Contains_duplicate(int[] nums)
     {
         Arrays.sort(nums);
+        int[] ans = new int[2];
         if(nums.length>1)
             for (int i = 0; i < nums.length-1; i++) {
                 if(nums[i]==nums[i+1])

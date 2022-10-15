@@ -1,4 +1,4 @@
-package com.Data_Structures_byprayush;// Linked list operations in Java
+package com.Data_Structures_byprayush.Data_Structures.Linear;// Linked list operations in Java
 //Prayush Giri
 //21BCE7864
 
@@ -24,8 +24,8 @@ public class LinkedList {
         the above representation can be visulized like node(10)->node(9)
          */
 
-        Node(int d) {
-            data = d;
+        Node(int data) {
+            this.data = data;
             next = null;
         }
     }
@@ -147,10 +147,10 @@ public class LinkedList {
 
     // Print the linked list
     public void printList() {
-        Node tnode = head;
-        while (tnode != null) {
-            System.out.print(tnode.data + " ");
-            tnode = tnode.next;
+        Node display_pointer = head;
+        while (display_pointer != null) {
+            System.out.print(display_pointer.data + " ");
+            display_pointer = display_pointer.next;
         }
 
     }
@@ -166,8 +166,9 @@ public class LinkedList {
         {
             LinkedList llist = new LinkedList();
 
-            llist.insertAtEnd(1);
-            llist.insertAtBeginning(2);
+
+            llist.insertAtBeginning(4);
+
             llist.insertAtBeginning(3);
             llist.insertAtEnd(4);
             llist.insertAfter(llist.head.next, 5);
