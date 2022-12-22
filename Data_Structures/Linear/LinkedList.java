@@ -4,7 +4,8 @@ package com.Data_Structures_byprayush.Data_Structures.Linear;// Linked list oper
 
 public class LinkedList {
     static Node head;
-
+    static Node tail;
+    int length=0;
 
     // Create a node
     class Node {
@@ -34,8 +35,10 @@ public class LinkedList {
     public void insertAtBeginning(int new_data) {
         // insert the data
         Node new_node = new Node(new_data);
+        length++;
         new_node.next = head;
         head = new_node;
+        tail = new_node;
     }
 
     // Insert after a node
@@ -45,6 +48,7 @@ public class LinkedList {
             return;
         }
         Node new_node = new Node(new_data);
+        length++;
         new_node.next = prev_node.next;
         prev_node.next = new_node;
     }
@@ -52,7 +56,7 @@ public class LinkedList {
     // Insert at the end
     public void insertAtEnd(int new_data) {
         Node new_node = new Node(new_data);
-
+        length++;
         if (head == null) {
             head = new Node(new_data);
             return;
@@ -67,30 +71,98 @@ public class LinkedList {
         last.next = new_node;
         return;
     }
-
-    // Delete a node
-    void deleteNode(int position) {
-        if (head == null)
-            return;
-
-        Node temp = head;
-
-        if (position == 0) {
-            head = temp.next;
-            return;
-        }
-        // Find the key to be deleted
-        for (int i = 0; temp != null && i < position - 1; i++)
+    public Node get(int index)
+    {
+        if(index<0||index>=length)
+            return null;
+        Node temp=head;
+        for (int i = 0; i < index; i++) {
             temp = temp.next;
+        }
+        return temp;
+    }
+    public boolean set(int index,int value)
+    {
+        Node temp=get(index);
+        if(temp != null )//If there is a value at the given index
+        {
+            temp.data = value;
+            return true;
+        }
+        return false;
+    }
+    public boolean insert(int index, int value)
+    {
+        Node node = new Node(value);//Node creation.
+        Node temp = head;
+        if(index<0 || index>=length)
+        {
+            return false;
+        }
+        for (int i = 0; i < index-1; i++) {
+            temp = temp.next;
+        }
+        if(index == 0)
+        {
+           insertAtBeginning(value);
+           return true;
+        }
+        if(index == length-1)
+        {
+            insertAtEnd(value);
+            return true;
+        }
+        node.next = temp.next;
+        temp.next = node;
+        length++;
+        return true;
+    }
+    public Node removeFirst()
+    {
+        //First if the linked list is null then return null;
+        if(head == null)
+            return null;
+        Node temp = head;
+        head = head.next;
+        temp.next = null;
 
-        // If the key is not present
-        if (temp == null || temp.next == null)
-            return;
+        return head;
+    }
+    public Node removeLast(){
+       if(length == 0)
+           return null;
+       Node temp = head;
+       Node pre = head;
+       while(temp.next != null)
+       {
+           pre = temp;
+           temp = temp.next;
+       }
+       tail = pre;
+       tail.next = null;
+       length--;
+       if(length == 0)
+       {
+           head = null;
+           tail = null;
+       }
+       return temp;
+    }
 
-        // Remove the node
-        Node next = temp.next.next;
-
-        temp.next = next;
+    public Node remove(int index)
+    {
+        if(index < 0 || index >= length)
+            return null;
+        if(index == 0)
+            return removeFirst();
+        if(index == length - 1)
+            return removeLast();
+        Node prev = get(index-1);
+        Node temp = prev.next;
+        prev.next = temp.next;
+        temp.next = null;
+        length--;
+        return temp;
     }
 
     // Search a node
@@ -145,6 +217,7 @@ public class LinkedList {
     }
 
 
+
     // Print the linked list
     public void printList() {
         Node display_pointer = head;
@@ -174,26 +247,30 @@ public class LinkedList {
             llist.insertAfter(llist.head.next, 5);
 
             System.out.println("Linked list: ");
-            llist.printList(head);
 
 //            System.out.println("\nAfter deleting an element: ");
 //            llist.deleteNode(3);
 //            llist.printList();
 
-            head = llist.reverseLinkedList(head);
-            System.out.println("\nReversing the linked list");
-            llist.printList(head);
-
-            System.out.println();
-            int item_to_find = 3;
-            System.out.println("Searching for Item: " + item_to_find);
-            if (llist.search(llist.head, item_to_find))
-                System.out.println(item_to_find + " is found");
-            else
-                System.out.println(item_to_find + " is not found");
-
-            llist.sortLinkedList(llist.head);
-            System.out.println("\nSorted List: ");
+//            head = llist.reverseLinkedList(head);
+//            System.out.println("\nReversing the linked list");
+//            llist.printList(head);
+//
+//            System.out.println();
+//            int item_to_find = 3;
+//            System.out.println("Searching for Item: " + item_to_find);
+//            if (llist.search(llist.head, item_to_find))
+//                System.out.println(item_to_find + " is found");
+//            else
+//                System.out.println(item_to_find + " is not found");
+//            llist.reverseLinkedList(head);
+            llist.insert(0,1000000);
+            llist.insertAtEnd(5050);
+            llist.insert(3,7864);
+            llist.printList();
+            llist.remove(0);
+            llist.remove(5);
+            System.out.println("\n");
             llist.printList();
 
         }
