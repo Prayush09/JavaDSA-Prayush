@@ -311,7 +311,7 @@ public class Sorting {
         }
     }
 
-    public void sort(int arr[])
+    public void Heapsort(int arr[])
     {
         int N = arr.length;
 
@@ -443,7 +443,7 @@ public class Sorting {
         printArray(arr6);
         Sorting ob = new Sorting();
         long StartHeap = System.nanoTime();
-        ob.sort(arr6);
+        ob.Heapsort(arr6);
         long EndHeap = System.nanoTime();
         System.out.println("Total time taken in Heap Sort: "+(EndHeap-StartHeap));
         System.out.println("Sorted array in Heap");
