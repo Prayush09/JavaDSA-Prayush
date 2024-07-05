@@ -15,14 +15,14 @@ public class Stack_Infix {
         return -1; //Not an operator
     }
 
-    public static String InfixtoPostFix(String str)
+    public static String InfixToPostFix(String str)
     {
         Stack<Character> st1 = new Stack<>();
         StringBuilder ans = new StringBuilder(); //Storing are final answer
         int n = str.length();
         for (int i = 0; i < n; i++) {
             char a = str.charAt(i);
-            if(a>='0'&&a<='9')
+            if(a>='a'&&a<='z')
                 ans.append(a);//concatenating the character into the ans.
             else if(a=='(')
                 st1.push('(');
@@ -42,7 +42,21 @@ public class Stack_Infix {
             ans.append(st1.pop());
         return ans.toString();
     }
-    public static StringBuilder InfixtoPrefix(String expression)
+
+    public static void main(String [] args)
+    {
+        //REG NUMBER : 21BCE7864
+        String infix = "a+b-(s*d)/h^y";
+        System.out.println("INFIX: "+ infix);
+        System.out.println("PostFix: "+InfixToPostFix(infix));
+        System.out.println("PreFix: "+InfixToPrefix(infix));
+    }
+
+
+
+
+
+    public static StringBuilder InfixToPrefix(String expression)
     {
         StringBuilder result = new StringBuilder();
         StringBuilder input = new StringBuilder(expression);
@@ -87,12 +101,5 @@ public class Stack_Infix {
         return result.reverse();
     }
 
-    public static void main(String [] args)
-    {
-        //REG NUMBER : 21BCE7864
-        String infix = "2+1-7*8/6+4";
-        System.out.println("INFIX: "+ infix);
-        System.out.println("PostFix: "+InfixtoPostFix(infix));
-        System.out.println("PreFix: "+InfixtoPrefix(infix));
-    }
+
 }

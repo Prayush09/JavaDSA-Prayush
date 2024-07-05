@@ -19,7 +19,7 @@ public class Vectors {
         //Size of the vector
         int size = 10;
         //Declaring the vector:
-        Vector<Integer> vector1 = new Vector<Integer>(size);
+        Vector<Integer> vector1 = new Vector<>(size);
 
         //Appending new elements at the end of the vector
         for (int i = 0; i < size; i++)

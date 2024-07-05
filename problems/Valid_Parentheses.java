@@ -5,7 +5,8 @@ public class Valid_Parentheses {
     {
         Stack<Character> stack = new Stack<>();
         char[] a = s.toCharArray();
-        //To do this using strings you can use for(String string : s.split("")) -> where s is the string in the parameter of the function
+        //To do this using strings you can use
+        // for(String string : s.split("")) -> where s is the string in the parameter of the function
         for (char c : a) {
             if(c=='('||c=='{'||c=='[')
                 stack.push(c);

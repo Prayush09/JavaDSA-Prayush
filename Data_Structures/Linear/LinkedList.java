@@ -202,7 +202,7 @@ public class LinkedList {
         }
     }
 
-    Node reverseLinkedList(Node node) {
+    static Node reverseLinkedList(Node node) {
         Node next;
         Node current = node;
         Node prev = null;
@@ -235,43 +235,76 @@ public class LinkedList {
         }
     }
 
+    public static boolean isPalindrome(Node head){
+        //find the middle using slow and fast
+        Node slow = head;
+        Node fast = head;
+
+        if(head == null || head.next == null)
+                return true;
+        while(fast != null || fast.next != null)
+        {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        Node secondReversedList = reverseLinkedList(slow);
+        Node temp1 = head;
+        Node temp2 = secondReversedList;
+
+        while(temp2 != null){
+            if(temp1.data != temp2.data)
+                    return false;
+            temp1 = temp1.next;
+            temp2 = temp2.next;
+        }
+        return true;
+    }
+
         public static void main(String [] args)
         {
             LinkedList llist = new LinkedList();
+            LinkedList l1 = new LinkedList();
+
+            for(int i = 0 ; i < 5; i++){
+                l1.insertAtEnd(i);
+            }
+            l1.printList();
+            System.out.println(isPalindrome(l1.head));;
 
 
-            llist.insertAtBeginning(4);
-
-            llist.insertAtBeginning(3);
-            llist.insertAtEnd(4);
-            llist.insertAfter(llist.head.next, 5);
-
-            System.out.println("Linked list: ");
-
-//            System.out.println("\nAfter deleting an element: ");
-//            llist.deleteNode(3);
-//            llist.printList();
-
-//            head = llist.reverseLinkedList(head);
-//            System.out.println("\nReversing the linked list");
-//            llist.printList(head);
+//            llist.insertAtBeginning(4);
 //
-//            System.out.println();
-//            int item_to_find = 3;
-//            System.out.println("Searching for Item: " + item_to_find);
-//            if (llist.search(llist.head, item_to_find))
-//                System.out.println(item_to_find + " is found");
-//            else
-//                System.out.println(item_to_find + " is not found");
-//            llist.reverseLinkedList(head);
-            llist.insert(0,1000000);
-            llist.insertAtEnd(5050);
-            llist.insert(3,7864);
-            llist.printList();
-            llist.remove(0);
-            llist.remove(5);
-            System.out.println("\n");
-            llist.printList();
+//            llist.insertAtBeginning(3);
+//            llist.insertAtEnd(4);
+//            llist.insertAfter(llist.head.next, 5);
+//
+//            System.out.println("Linked list: ");
+//
+////            System.out.println("\nAfter deleting an element: ");
+////            llist.deleteNode(3);
+////            llist.printList();
+//
+////            head = llist.reverseLinkedList(head);
+////            System.out.println("\nReversing the linked list");
+////            llist.printList(head);
+////
+////            System.out.println();
+////            int item_to_find = 3;
+////            System.out.println("Searching for Item: " + item_to_find);
+////            if (llist.search(llist.head, item_to_find))
+////                System.out.println(item_to_find + " is found");
+////            else
+////                System.out.println(item_to_find + " is not found");
+////            llist.reverseLinkedList(head);
+//            llist.insert(0,1000000);
+//            llist.insertAtEnd(5050);
+//            llist.insert(3,7864);
+//            llist.printList();
+//            llist.remove(0);
+//            llist.remove(5);
+//            System.out.println("\n");
+//            llist.printList();
 
         }
 
