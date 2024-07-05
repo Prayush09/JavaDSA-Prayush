@@ -9,7 +9,7 @@ public class Greatest_common_divisor {
     }
 
     public static void main(String[] args) {
-        System.out.println("Enter two numbers:");
+          System.out.println("Enter two numbers:");
         Scanner scan = new Scanner(System.in);
         int a = scan.nextInt();
         int b = scan.nextInt();

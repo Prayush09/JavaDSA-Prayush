@@ -8,7 +8,7 @@ public class SelectionSort {
         {
             //assigning the minimum index value of i.
             int min_index = i;
-            //Starting second loop from i+1 position till last position,
+            // Starting second loop from i+1 position till last position,
             // here j = 1 for first iteration
             // therefore we need to go till j<n and not j<n-1.
             for(int j=i+1;j<n;j++)

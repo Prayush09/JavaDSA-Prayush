@@ -1,4 +1,4 @@
-package com.Data_Structures_byprayush.Data_Structures.Linear;
+package com.Data_Structures_byprayush.Data_Structures.Linear.Stacks;
 
 import java.util.LinkedList;
         import java.util.Queue;

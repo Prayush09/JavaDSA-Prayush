@@ -1,4 +1,4 @@
-package com.Data_Structures_byprayush;
+package com.Data_Structures_byprayush.Data_Structures.Linear;
 
 @SuppressWarnings("unchecked")
 public class Another_Dynamic_Array<P> implements Iterable<P>{

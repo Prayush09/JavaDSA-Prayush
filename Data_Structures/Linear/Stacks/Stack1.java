@@ -1,4 +1,4 @@
-package com.Data_Structures_byprayush;
+package com.Data_Structures_byprayush.Data_Structures.Linear.Stacks;
 
 import java.util.Scanner;
 
@@ -7,18 +7,18 @@ public class Stack1{
     private int maxsize = 10;
     private int[] arr = new int[maxsize];
 
-    boolean isEmpty()
+    public boolean isEmpty()
     {
        return top<0;
     }
-    Stack1()
+    public Stack1()
     {
         top = -1;
     }
 //You can take Scanner object as parameter within a function so that you just have to
 // initialize a Scanner once and you can input values using that particular scanner
 // object by passing it to various method's parameters.
-    boolean push(Scanner scan)
+public boolean push(Scanner scan)
     {
         if(top>=maxsize-1)
         {
@@ -34,7 +34,7 @@ public class Stack1{
         }
     }
 
-    boolean pop(){
+    public boolean pop(){
         if(top == -1)
         {
             System.out.println("Stack is empty!");
@@ -47,7 +47,7 @@ public class Stack1{
         }
     }
 
-    void display(){
+    public void display(){
         for (int i = top; i >= 0; i--) {
             System.out.println(arr[i]);
         }

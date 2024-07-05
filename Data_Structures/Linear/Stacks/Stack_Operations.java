@@ -1,8 +1,7 @@
-package com.Data_Structures_byprayush.Data_Structures.Linear;
+package com.Data_Structures_byprayush.Data_Structures.Linear.Stacks;
 
 import java.util.Scanner;
-class Stack
-{
+class Stack<S> {
     int top;
     int maxsize = 10;
     int[] arr = new int[maxsize];
@@ -63,7 +62,7 @@ public class Stack_Operations {
     public static void main(String[] args) {
         int choice=0;
         Scanner sc = new Scanner(System.in);
-        Stack s = new Stack();
+        Stack<Integer> s = new Stack<Integer>();
         System.out.println("*********Stack operations using array*********\n");
         System.out.println("\n------------------------------------------------\n");
         while(choice != 4)
