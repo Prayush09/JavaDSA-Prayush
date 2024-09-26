@@ -8,7 +8,7 @@ public class Depth_First_Search {
         //most basic implementation of dfs
         visited[node] = true;
         for(int neighbour : adj.get(node)){
-            if(!visited[neighbour]){
+            if(!visited[neighbour]) {
                 dfs(adj, visited, neighbour);
             }
         }
