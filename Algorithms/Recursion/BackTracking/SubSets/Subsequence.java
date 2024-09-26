@@ -1,13 +1,13 @@
-package com.Data_Structures_byprayush.Algorithms.Recursion.SubSets;
+package com.Data_Structures_byprayush.Algorithms.Recursion.BackTracking.SubSets;
 
 import java.util.ArrayList;
 
 public class Subsequence {
     public static void main(String[] args) {
-        subseq("","abc");
-        ArrayList<String> ar1 = subseqArrayList("","abcd");
-        ArrayList<String> ar = AsciiSubseq("","abcd");
-        System.out.println(ar);
+        //subseq("","aab");
+        ArrayList<String> ar1 = subseqArrayList("","aab");
+        //ArrayList<String> ar = AsciiSubseq("","abcd");
+       //System.out.println(ar);
         System.out.println(ar1);
     }
 

@@ -1,4 +1,4 @@
-package com.Data_Structures_byprayush.Data_Structures.Linear;// Linked list operations in Java
+package com.Data_Structures_byprayush.Data_Structures.Linear.LinkedList;// Linked list operations in Java
 //Prayush Giri
 //21BCE7864
 

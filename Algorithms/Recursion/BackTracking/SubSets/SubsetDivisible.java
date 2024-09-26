@@ -1,4 +1,4 @@
-package com.Data_Structures_byprayush.Algorithms.Recursion.SubSets;
+package com.Data_Structures_byprayush.Algorithms.Recursion.BackTracking.SubSets;
 
 import java.util.*;
 import java.lang.*;
